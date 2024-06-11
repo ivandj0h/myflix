@@ -1,15 +1,22 @@
 .container {
-
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
 }
 
 .webLinks {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 20px;
 }
 
-.menuButton, .mobileLinks {
-    display: none;
+.menuButton {
+    display: none; /* Hide the mobile menu button for now */
+}
+
+.mobileLinks {
+    display: none; /* Hide the mobile links for now */
 }
 
 .logout {
@@ -30,29 +37,25 @@
     color: white;
 }
 
-@media (max-width: 768px) {
-    .webLinks {
-        display: none;
-    }
+.toggleButton {
+    background-color: gray;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
 
-    .menuButton {
-        display: block;
-        cursor: pointer;
-        font-size: 30px;
-        font-weight: bold;
-    }
-
-    .mobileLinks {
-        position: absolute;
-        top: 100px;
-        right: 0;
-        width: 50%;
-        height: calc(100vh - 100px);
-        /*background-color: var(--foreground-rgb);*/
-        background-color: blueviolet;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
-    }
+.themeToggle {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    color: inherit;
+    font-size: 24px;
+    margin-left: 20px; /* Adjust spacing as needed */
+    display: flex;
+    align-items: center;
 }

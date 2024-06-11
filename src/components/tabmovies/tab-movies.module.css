@@ -1,35 +1,79 @@
-.tabMoviesContainer {
+.tabContainer {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
     margin-top: 100px;
 }
 
-.tabs {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-}
-
-.tab {
-    background: #444;
-    color: white;
-    padding: 10px 20px;
+.tabButton {
+    background-color: #333;
+    color: #fff;
     border: none;
+    padding: 10px 20px;
     cursor: pointer;
     border-radius: 5px;
-    transition: background 0.3s;
+    transition: background-color 0.3s ease;
 }
 
-.tab:hover {
-    background: #666;
+.tabButton:hover {
+    background-color: #555;
 }
 
-.activeTab {
-    background: #666;
+.active {
+    background-color: #667;
 }
 
-.cardsContainer {
-    margin-top: 20px;
+.movieCardsContainer {
     display: flex;
     flex-wrap: wrap;
+    gap: 10px;
     justify-content: center;
-    gap: 20px;
+}
+
+.loadingContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+}
+
+.spinner {
+    border: 8px solid rgba(0, 0, 0, 0.1);
+    border-top: 8px solid #333;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modalContent {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
