@@ -28,9 +28,9 @@ const auth = (WrappedComponent: React.FC) => {
 };
 
 export const isUserLoggedIn = (): boolean => {
-    // Periksa apakah token pengguna ada di localStorage
     const token = typeof window !== "undefined" ? localStorage.getItem('userToken') : null;
     return !!token;
 };
+
 
 export default auth;

@@ -1,7 +1,6 @@
 "use client"
 
-import React, { useState } from 'react';
-import { useRouter } from 'next/navigation';
+import React, {useEffect, useRef, useState} from 'react';
 import Image from "next/image";
 import { MENU_LISTS } from '@/app/constants/MenuLists';
 import { MenuListItem } from '@/app/interfaces/globalInterfaces';
@@ -10,26 +9,26 @@ import NavLink from "@/components/navbar/navlink/navLink";
 import { FaRegSun, FaMoon } from "react-icons/fa";
 import { useTheme } from '@/app/context/ThemeContext';
 import ProfileModal from '@/components/profile/ProfileModal';
+import LoadingSpinner from '@/components/utils/LoadingSpinner';
 
 const MenuLinks: React.FC = () => {
-    const router = useRouter();
+    const dropdownRef = useRef<HTMLDivElement>(null);
     const [open, setOpen] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
     const [dropdownOpen, setDropdownOpen] = useState(false);
     const [profileOpen, setProfileOpen] = useState(false);
     const { isDarkTheme, toggleTheme } = useTheme(); // Use useTheme hook
-
-    // Temporary Code, will change on next phase
-    const session = typeof window !== "undefined" && localStorage.getItem('userToken');
-    const isAdmin = false;
-
-    const handleSignIn = () => {
-        router.push('/login');
-    };
+    const [session, setSession] = useState(typeof window !== "undefined" && localStorage.getItem('userToken'));
 
     const handleLogout = () => {
+        setIsLoading(true); // Set isLoading to true
+        setTimeout(() => {
         localStorage.removeItem('userToken');
         localStorage.removeItem('user');
-        router.replace('/login');
+        setSession(null);
+            setIsLoading(false);
+            window.location.href = '/';
+        }, 3000);
     };
 
     const toggleDropdown = () => {
@@ -43,11 +42,28 @@ const MenuLinks: React.FC = () => {
     const closeProfileModal = () => {
         setProfileOpen(false);
     };
+    const handleClickOutside = (event: MouseEvent) => {
+        if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+            setDropdownOpen(false);
+        }
+    };
+
+    useEffect(() => {
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, []);
 
     const user = typeof window !== "undefined" ? JSON.parse(localStorage.getItem('user') || '{}') : {};
 
     return (
         <div className={styles.container}>
+            {isLoading && (
+                <div className={styles.modal}>
+                    <LoadingSpinner />
+                </div>
+            )}
             <div className={styles.webLinks}>
                 {MENU_LISTS.map((link: MenuListItem) => (
                     <NavLink item={link} key={link.id} />
@@ -57,8 +73,8 @@ const MenuLinks: React.FC = () => {
                         <button onClick={toggleTheme} className={styles.toggleButton}>
                             {isDarkTheme ? <FaRegSun /> : <FaMoon />}
                         </button>
-                            <span>Welcome, {user.displayName || 'User'}</span>
-                        <div className={styles.avatarContainer}>
+                            <span className={styles.username}>Welcome, {user.displayName || 'Anonymous'}</span>
+                        <div className={styles.avatarContainer} ref={dropdownRef}>
                             <button
                                 onClick={toggleDropdown}
                                 className={styles.avatarButton}

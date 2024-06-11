@@ -39,11 +39,29 @@
     z-index: 2;
     width: 400px;
     padding: 40px;
-    background: rgba(0, 0, 0, 0.35);
+    background: rgba(0, 0, 0, 0.2);
+    border: 2px solid rgba(0, 0, 0, 0.2);
     border-radius: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.logoThin {
+    font-size: 24px;
+    font-weight: 300; /* Thin */
+}
+
+.logoBold {
+    font-size: 24px;
+    font-weight: bold; /* Bold */
+    color: red;
 }
 
 .title {
@@ -66,6 +84,10 @@
     border: none;
     font-size: 16px;
     color: #222222;
+}
+
+.inputError {
+    border: 2px solid red;
 }
 
 .buttonContainer {
@@ -106,6 +128,16 @@
     background: #444444;
 }
 
+.toast {
+    background-color: red;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    text-align: center;
+    width: 100%;
+}
+
 .signUpText {
     color: white;
     font-size: 14px;
@@ -115,21 +147,4 @@
 .signUpLink {
     color: red;
     text-decoration: none;
-}
-
-.logo {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-.logoThin {
-    font-size: 30px;
-    font-weight: 300; /* Thin font weight */
-}
-
-.logoBold {
-    font-size: 30px;
-    font-weight: bold; /* Bold font weight */
-    color: red;
 }
