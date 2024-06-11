@@ -22,10 +22,10 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 ## Screen Shoot
 
 ### Home
-![Home](./public/images/home.png)
+![Home](./public/images/dashboard.png)
 
 ### Popular Movies
-![Home](./public/images/popular.png)
+![Home](./public/images/now_playing.png)
 
 ## Credit
 This project was developed by [ivandjoh](https://www.linkedin.com/in/ivandjoh/) @2024.
