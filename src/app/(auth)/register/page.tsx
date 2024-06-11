@@ -1,6 +1,5 @@
 "use client"
 
-
 import React, { useEffect, useState } from 'react';
 import styles from './register-page.module.css';
 
@@ -37,7 +36,7 @@ const RegisterPage: React.FC = () => {
                     <input type="password" placeholder="Repeat your password" className={styles.input} />
                     <button type="submit" className={styles.signUpButton}>Sign Up</button>
                 </form>
-                <p className={styles.signInText}>Do you already have an account? <a href="#" className={styles.signInLink}>Sign In</a></p>
+                <p className={styles.signInText}>Do you already have an account? <a href="/login" className={styles.signInLink}>Sign In</a></p>
             </div>
         </div>
     );
