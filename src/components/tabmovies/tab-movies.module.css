@@ -1,0 +1,35 @@
+.tabMoviesContainer {
+    margin-top: 100px;
+}
+
+.tabs {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.tab {
+    background: #444;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.tab:hover {
+    background: #666;
+}
+
+.activeTab {
+    background: #666;
+}
+
+.cardsContainer {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}

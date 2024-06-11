@@ -4,13 +4,10 @@ import React from 'react';
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import styles from './nav-link.module.css';
-import { NavItem } from '@/app/interfaces/globalInterfaces';
+import {NavLinkProps} from "@/app/interfaces/globalInterfaces";
 
-interface NavLinkProps {
-    item: NavItem;
-}
 
-const NavLink: React.FC<NavLinkProps> = ({ item }) => {
+const NavLink: React.FC<NavLinkProps> = ({ item, className }) => {
     const pathName = usePathname();
 
     return (

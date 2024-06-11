@@ -21,6 +21,15 @@
     color: white;
 }
 
+.login {
+    padding: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    background-color: red;
+    border-radius: 5px;
+    color: white;
+}
+
 @media (max-width: 768px) {
     .webLinks {
         display: none;

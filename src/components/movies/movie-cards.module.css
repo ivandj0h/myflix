@@ -1,0 +1,27 @@
+.movieCard {
+    background-color: #222;
+    border-radius: 10px;
+    overflow: hidden;
+    width: 200px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.movieCard:hover {
+    transform: translateY(-10px);
+}
+
+.movieImage {
+    width: 100%;
+    height: auto;
+}
+
+.movieTitle {
+    font-size: 18px;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
