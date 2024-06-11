@@ -5,7 +5,11 @@ export interface RootLayoutProps {
     children: React.ReactNode;
 }
 
-// MenuLists Interface
+export interface Metadata {
+    title: string;
+    description: string;
+}
+
 export interface MenuListItem {
     id: string;
     pathTitle: string;
