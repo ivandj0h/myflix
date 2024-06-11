@@ -2,8 +2,8 @@ export const MENU_LISTS = [
     {
         id: '1',
         menuTitle: 'Home',
-        pathTitle: '/',
-        path: '/'
+        pathTitle: 'dashboard',
+        path: '/dashboard'
     },
     {
         id: '2',

@@ -1,0 +1,119 @@
+.container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+}
+
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+
+.heroVideo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 0;
+}
+
+.loginBox {
+    position: relative;
+    z-index: 1;
+    width: 400px;
+    padding: 40px;
+    background: rgba(0, 0, 0, 0.75);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: white;
+}
+
+.warning {
+    color: red;
+    font-size: 12px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.input {
+    width: 100%;
+    padding: 15px;
+    border-radius: 5px;
+    border: none;
+    font-size: 16px;
+}
+
+.signInButton {
+    width: 100%;
+    padding: 15px;
+    border-radius: 5px;
+    border: none;
+    background: red;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.googleButton {
+    width: 100%;
+    padding: 15px;
+    border-radius: 5px;
+    border: none;
+    background: blue;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.anonymousButton {
+    width: 100%;
+    padding: 15px;
+    border-radius: 5px;
+    border: 2px solid white;
+    background: transparent;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.signUpText {
+    color: white;
+    font-size: 14px;
+    margin-top: 20px;
+}
+
+.signUpLink {
+    color: red;
+    text-decoration: none;
+}

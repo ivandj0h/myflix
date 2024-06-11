@@ -1,12 +1,10 @@
 import React from 'react';
-import Hero from '@/components/hero/Hero';
-import PopularMovies from '../../src/components/popular/PopularMovies'
+import LoginPage from "@/app/(auth)/login/page";
 
 const Home: React.FC = () => {
     return (
         <>
-            <Hero />
-            <PopularMovies />
+            <LoginPage />
         </>
     );
 };

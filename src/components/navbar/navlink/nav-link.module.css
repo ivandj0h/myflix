@@ -1,15 +1,14 @@
 .container {
-    /*background-color: blueviolet;*/
     min-width: 100px;
     padding: 10px;
     border-radius: 5px;
     font-weight: 500;
     text-align: center;
+    color: white; /* Default color */
 }
 
 .active {
-    /*background-color: red;*/
-    /*color: var(--foreground-rgb);*/
-    text-decoration: underline;
-    color: white;
+    background-color: rgba(0, 0, 0, 0.5); /* Black transparent background */
+    color: red; /* Active color */
+    font-weight: bold; /* Bold font weight */
 }
