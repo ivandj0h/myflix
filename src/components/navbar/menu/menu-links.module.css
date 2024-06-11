@@ -67,6 +67,11 @@
     color: white; /* Change color as needed */
 }
 
+.username {
+    color: white;;
+    font-weight: bold;
+}
+
 .avatarContainer {
     position: relative;
     display: flex;

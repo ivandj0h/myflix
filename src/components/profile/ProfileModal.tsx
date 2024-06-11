@@ -37,7 +37,7 @@ const ProfileModal: React.FC<ProfileModalProps> = ({ onClose }) => {
                         width={100}
                         height={100}
                     />
-                    <p><strong>Full Name:</strong> {user.displayName || 'N/A'}</p>
+                    <p><strong>Full Name:</strong> {user.displayName || 'Anonymous'}</p>
                     <p><strong>Email:</strong> {user.email || 'N/A'}</p>
                     <p><strong>Join Date:</strong> {formatDate(user.createdAt)}</p>
                 </div>
