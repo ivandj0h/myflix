@@ -10,14 +10,10 @@ const Navbar: React.FC = () => {
 
     useEffect(() => {
         const handleScroll = () => {
-            // console.log('Scroll event detected');
-            // console.log('window.scrollY:', window.scrollY);
             if (window.scrollY > 50) {
                 setScrolled(true);
-                // console.log('Scrolled more than 50px');
             } else {
                 setScrolled(false);
-                // console.log('Scrolled less than 50px');
             }
         };
 
@@ -56,10 +52,13 @@ const Navbar: React.FC = () => {
     }, [isLightTheme]);
 
     return (
-        <div className={`${styles.container} ${scrolled ? (isLightTheme ? styles.scrollLight : styles.scrollDark) : (isLightTheme ? styles.light : styles.dark)}`}>
-            <div className={styles.logo}>myflix</div>
+        <div
+            className={`${styles.container} ${scrolled ? (isLightTheme ? styles.scrollLight : styles.scrollDark) : (isLightTheme ? styles.light : styles.dark)}`}>
+            <div className={styles.logo}>
+                <span className={styles.logoThin}>My</span><span className={styles.logoBold}>flix</span>
+            </div>
             <div>
-                <MenuLinks />
+                <MenuLinks/>
             </div>
         </div>
     );

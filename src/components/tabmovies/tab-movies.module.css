@@ -21,7 +21,9 @@
 }
 
 .active {
-    background-color: #667;
+    background-color: red; /* Red background for active tab */
+    color: white; /* White text for active tab */
+    font-weight: bold; /* Bold font for active tab */
 }
 
 .movieCardsContainer {

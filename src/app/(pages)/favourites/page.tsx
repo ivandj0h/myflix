@@ -1,8 +1,12 @@
-import React from 'react'
+import React from 'react';
+import HeroFavourites from "@/components/hero/HeroFavourites";
 
-const FavouritePage = () => {
+const FavouritePage: React.FC = () => {
     return (
-        <div>FavouritePage</div>
-    )
+        <>
+            <HeroFavourites />
+        </>
+    );
 }
-export default FavouritePage
+
+export default FavouritePage;

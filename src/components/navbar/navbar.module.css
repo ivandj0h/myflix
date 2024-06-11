@@ -14,19 +14,36 @@
 }
 
 .logo {
-    font-size: 30px;
-    font-weight: bold;
-    color: white; /* Default color */
+    display: flex;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.2); /* Transparent background */
+    color: white; /* White color */
+    padding: 5px 20px; /* Increased padding for more width */
+    border-radius: 5px;
 }
 
-.scrollLight {
-    background: rgba(255, 255, 255, 0.9); /* White with transparency */
-    color: black; /* Change text color for visibility */
+.logoThin {
+    font-size: 30px;
+    font-weight: 300; /* Thin font weight */
 }
+
+.logoBold {
+    font-size: 30px;
+    font-weight: bold; /* Bold font weight */
+    color: red;
+    margin-left: 5px; /* Add space between My and flix */
+}
+
+/*.scrollLight {*/
+/*    background: rgba(255, 255, 255, 0.5); !* White with transparency *!*/
+/*    color: black; !* Change text color for visibility *!*/
+/*    border: 2px solid #000;*/
+/*}*/
 
 .scrollDark {
-    background: rgba(0, 0, 0, 0.9); /* Black with transparency */
+    background: rgba(0, 0, 0, 0.5); /* Black with transparency */
     color: white; /* Change text color for visibility */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Dark shadow */
 }
 
 .light {

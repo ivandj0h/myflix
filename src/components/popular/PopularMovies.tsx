@@ -1,9 +1,9 @@
 "use client"
 
-
 import React, { useRef } from 'react';
 import styles from './popularMovies.module.css';
 import TabMovies from "@/components/tabmovies/TabMovies";
+import Footer from "@/components/footer/Footer";
 
 const PopularMovies: React.FC = () => {
     const movies = [
@@ -55,6 +55,7 @@ const PopularMovies: React.FC = () => {
                 <button className={styles.navButton} onClick={() => scroll('right')}>{">"}</button>
             </div>
             <TabMovies />
+            <Footer />
         </div>
     );
 };
