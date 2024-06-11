@@ -1,8 +1,12 @@
 import React from 'react';
 
-const Footer: React.FC = () => {
+const Footer: React.FC<{ className?: string }> = ({ className }) => {
     return (
-        <div>Footer</div>
+        <footer className={className}>
+            <div className="footer-content">
+                {/* Konten footer */}
+            </div>
+        </footer>
     );
 };
 

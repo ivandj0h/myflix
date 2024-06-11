@@ -1,0 +1,71 @@
+.popularMoviesContainer {
+    position: absolute;
+    top: 75%; /* Positioning the container at 75% from the top of the hero */
+    width: 100%;
+    padding: 20px 50px;
+    background-color: transparent;
+    z-index: 3;
+    cursor: pointer;
+}
+
+.sectionTitle {
+    font-size: 32px;
+    color: white;
+    margin-bottom: 20px;
+}
+
+.sliderContainer {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.navButton {
+    background: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: white;
+    font-size: 24px;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.moviesGrid {
+    display: flex;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+    gap: 20px;
+    padding: 0 20px; /* Add padding to left and right */
+    scrollbar-width: none; /* Firefox */
+    flex-wrap: nowrap;
+}
+
+.moviesGrid::-webkit-scrollbar {
+    display: none; /* Webkit */
+}
+
+.movieCard {
+    background-color: #222;
+    border-radius: 10px;
+    overflow: hidden;
+    min-width: 200px;
+    max-width: 200px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.movieCard:hover {
+    transform: translateY(-10px);
+}
+
+.movieImage {
+    width: 100%;
+    height: auto;
+}
+
+.movieTitle {
+    font-size: 18px;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}

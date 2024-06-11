@@ -8,7 +8,8 @@
 }
 
 .active {
-    background-color: red;
+    /*background-color: red;*/
     /*color: var(--foreground-rgb);*/
+    text-decoration: underline;
     color: white;
 }

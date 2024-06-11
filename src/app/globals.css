@@ -12,6 +12,14 @@
   --foreground-rgb: 0, 0, 0;
 }
 
+@media (prefers-color-scheme: light) {
+  :root {
+    --foreground-rgb: 0, 0, 0;
+    --background-start-rgb: 255, 255, 255;
+    --background-end-rgb: 255, 255, 255;
+  }
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
@@ -20,14 +28,24 @@
   }
 }
 
-body {
+html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+          to bottom,
+          transparent,
+          rgb(var(--background-end-rgb))
+  )
+  rgb(var(--background-start-rgb));
+}
+
+#__next {
+  height: 100%;
+  width: 100%;
 }
 
 @layer utilities {
@@ -37,23 +55,25 @@ body {
 }
 
 .container {
-  /*background-color: aqua;*/
   width: 1536px;
-  margin: auto;
-  padding-left: 50px;
-  padding-right: 50px;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  flex: 1;
 }
 
-/*
- * All Breakpoints Setup
- */
-@media (max-width: 1536px) {
+.stickyFooter {
+  position: sticky;
+  bottom: 0;
+  width: 100%;
+  background-color: var(--background-end-rgb);
+}
+
+@media (max-width: 1280px) {
   .container {
-    width: 1366px;
+    /*padding-left: 20px;*/
+    /*padding-right: 20px;*/
   }
 }
 
@@ -66,8 +86,8 @@ body {
 @media (max-width: 1280px) {
   .container {
     width: 1024px;
-    padding-left: 20px;
-    padding-right: 20px;
+    /*padding-left: 20px;*/
+    /*padding-right: 20px;*/
   }
 }
 
