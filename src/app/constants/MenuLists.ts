@@ -7,16 +7,16 @@ export const MENU_LISTS = [
     {
         id: '2',
         menuTitle: 'Popular Movies',
-        pathTitle: '/',
+        pathTitle: '/popular',
     },
     {
         id: '3',
         menuTitle: 'Upcoming Movies',
-        pathTitle: '/',
+        pathTitle: '/upcoming',
     },
     {
         id: '4',
         menuTitle: 'Favourites',
-        pathTitle: '/',
+        pathTitle: '/favourites',
     }
 ]
