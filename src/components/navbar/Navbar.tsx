@@ -1,17 +1,15 @@
-import React from 'react'
-import Link from "next/link";
+import React from 'react';
+import MenuLinks from '@/components/navbar/MenuLinks';
 
-const Navbar = () => {
+const Navbar: React.FC = () => {
     return (
         <div>
             <div>Logo</div>
             <div>
-                <Link href='/public'>Home</Link>
-                <Link href='/public'>Popular Movies</Link>
-                <Link href='/public'>upcoming movies</Link>
-                <Link href='/public'>favourite</Link>
+                <MenuLinks />
             </div>
         </div>
-    )
-}
-export default Navbar
+    );
+};
+
+export default Navbar;
