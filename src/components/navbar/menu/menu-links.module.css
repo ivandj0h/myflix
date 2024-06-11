@@ -59,3 +59,50 @@
     display: flex;
     align-items: center;
 }
+
+.userInfo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: white; /* Change color as needed */
+}
+
+.avatarContainer {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.avatarButton {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.avatar {
+    border-radius: 50%;
+}
+
+.dropdownMenu {
+    position: absolute;
+    top: 110%; /* Adjust this value to lower the dropdown */
+    right: 0;
+    background: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    overflow: hidden;
+    z-index: 1000;
+}
+
+.dropdownItem {
+    display: block;
+    padding: 10px 20px;
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.dropdownItem:hover {
+    background-color: #f1f1f1;
+}

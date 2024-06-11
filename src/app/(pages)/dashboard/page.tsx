@@ -1,8 +1,12 @@
+"use client"
+
+
 import React from 'react'
 import PopularMovies from "@/components/popular/PopularMovies";
 import Hero from "@/components/hero/Hero";
+import auth from "@/components/utils/auth";
 
-const PopularPage = () => {
+const DashboardPage = () => {
     return (
         <>
             <Hero />
@@ -10,4 +14,5 @@ const PopularPage = () => {
         </>
     )
 }
-export default PopularPage
+
+export default auth(DashboardPage);
