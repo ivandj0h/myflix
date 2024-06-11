@@ -1,12 +1,30 @@
 .container {
-    /*background-color: blueviolet;*/
+    background-color: transparent; /* Default transparent background */
     display: flex;
     height: 100px;
     align-items: center;
     justify-content: space-between;
+    position: fixed; /* Change to fixed for scroll effect */
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+    padding: 0 20px; /* Add padding */
 }
 
 .logo {
     font-size: 30px;
     font-weight: bold;
+    color: white; /* Default color */
+}
+
+.scrollLight {
+    background-color: rgba(255, 255, 255, 0.9); /* White with transparency */
+    color: black; /* Change text color for visibility */
+}
+
+.scrollDark {
+    background-color: rgba(0, 0, 0, 0.9); /* Black with transparency */
+    color: white; /* Change text color for visibility */
 }

@@ -1,8 +1,7 @@
 "use client"
 
-
 import React from 'react';
-import {MENU_LISTS} from '@/app/constants/MenuLists';
+import {MENU_LISTS} from '@/app/constants/MenuLists'
 import {MenuListItem} from '@/app/interfaces/globalInterfaces';
 import styles from './menu-links.module.css';
 import NavLink from "@/components/navbar/navlink/navLink";

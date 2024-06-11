@@ -1,10 +1,13 @@
 import React from 'react';
+import Hero from '@/components/hero/Hero';
+import PopularMovies from '../../src/components/popular/PopularMovies'
 
 const Home: React.FC = () => {
     return (
-        <main>
-            <h2>MyFlix</h2>
-        </main>
+        <>
+            <Hero />
+            <PopularMovies />
+        </>
     );
 };
 

@@ -1,9 +1,9 @@
 import React from 'react';
 import { Inter } from 'next/font/google';
 import './globals.css';
-import { RootLayoutProps } from '@/app/interfaces/globalInterfaces'
+import { RootLayoutProps } from '@/app/interfaces/globalInterfaces';
 import Navbar from '@/components/navbar/Navbar';
-import Footer from "@/components/footer/Footer";
+import Footer from '@/components/footer/Footer';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -17,17 +17,16 @@ const metadata: Metadata = {
     description: 'Your ultimate movie collection app.',
 };
 
-
 const RootLayout: React.FC<RootLayoutProps> = ({ children }) => {
     return (
         <html lang="en">
-            <body className={inter.className}>
-                <div className='container'>
-                    <Navbar />
-                    {children}
-                    <Footer />
-                </div>
-            </body>
+        <body className={inter.className}>
+        <Navbar />
+        <div style={{flex:1}}>
+            {children}
+        </div>
+        <Footer className="stickyFooter" />
+        </body>
         </html>
     );
 };
