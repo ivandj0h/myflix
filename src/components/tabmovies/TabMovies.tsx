@@ -1,28 +1,30 @@
-"use client"
-
 import React, { useState } from 'react';
-import styles from './tabMovies.module.css';
+import styles from './tab-movies.module.css';
+import MovieCards from '@/components/movies/MovieCards';
 
 const TabMovies: React.FC = () => {
-    const [activeTab, setActiveTab] = useState('nowPlaying');
+    const [activeTab, setActiveTab] = useState('Now Playing');
 
-    const tabs = [
-        { id: 'nowPlaying', label: 'Now Playing' },
-        { id: 'upcomingMovies', label: 'Upcoming Movies' },
-        { id: 'topRatedMovies', label: 'Top Rated Movies' },
-    ];
+    const handleTabClick = (tab: string) => {
+        setActiveTab(tab);
+    };
 
     return (
-        <div className={styles.tabsContainer}>
-            {tabs.map((tab) => (
-                <button
-                    key={tab.id}
-                    className={`${styles.tabButton} ${activeTab === tab.id ? styles.active : ''}`}
-                    onClick={() => setActiveTab(tab.id)}
-                >
-                    {tab.label}
-                </button>
-            ))}
+        <div className={styles.tabMoviesContainer}>
+            <div className={styles.tabs}>
+                {['Now Playing', 'Upcoming Movies', 'Top Rated Movies'].map((tab) => (
+                    <button
+                        key={tab}
+                        className={`${styles.tab} ${activeTab === tab ? styles.activeTab : ''}`}
+                        onClick={() => handleTabClick(tab)}
+                    >
+                        {tab}
+                    </button>
+                ))}
+            </div>
+            <div className={styles.cardsContainer}>
+                <MovieCards category={activeTab} />
+            </div>
         </div>
     );
 };
