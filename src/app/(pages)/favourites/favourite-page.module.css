@@ -1,0 +1,64 @@
+.favouritesContainer {
+    margin-top: 200px; /* Set top margin */
+    width: 100%;
+}
+
+.gridContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Adjusted the width of the cards */
+    gap: 16px;
+    justify-items: center;
+}
+
+.card {
+    background-color: #222;
+    color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    width: 100%;
+    max-width: 250px; /* Adjusted the max-width of the cards */
+    height: 400px; /* Fixed height for the cards */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+.cardImage {
+    width: 100%;
+    height: 150px; /* Fixed height for the image */
+    object-fit: cover; /* Ensure the image covers the area */
+}
+
+.cardContent {
+    padding: 10px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Ensure content is spaced out */
+    height: 100%; /* Ensure the content takes the full height */
+}
+
+
+.cardTitle {
+    grid-row: 1; /* Ensure the title is in the first row */
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.cardDescription {
+    font-size: 12px;
+    overflow: hidden; /* Hide overflow content */
+    text-overflow: ellipsis; /* Add ellipsis at the end of the truncated text */
+    display: -webkit-box;
+    -webkit-line-clamp: 5; /* Limit the number of lines to 3 */
+    -webkit-box-orient: vertical;
+    white-space: normal; /* Ensure normal wrapping of text */
+}
+
+
