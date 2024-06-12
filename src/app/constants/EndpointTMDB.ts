@@ -4,7 +4,7 @@ export const TMDB_API_PARAMS = {
     language: 'en-US',
     sort_by: 'popularity.desc',
     include_adult: 'false',
-    include_video: 'false',
+    include_video: 'true',
 };
 
 export const constructTMDBUrl = (apiKey: string) => {

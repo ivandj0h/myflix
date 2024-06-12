@@ -1,38 +1,35 @@
 "use client"
 
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
+import Image from 'next/image';
+
+import axios from 'axios';
 import styles from './popularMovies.module.css';
 import TabMovies from "@/components/tabmovies/TabMovies";
 import Footer from "@/components/footer/Footer";
-import { constructTMDBUrl } from '@/app/constants/EndpointTMDB';
+import MovieModal from '@/components/modal/MovieModal';
+import {constructTMDBUrl} from '@/app/constants/EndpointTMDB';
 import {Movie} from "@/app/interfaces/globalInterfaces";
-
-
 
 const PopularMovies: React.FC = () => {
     const [movies, setMovies] = useState<Movie[]>([]);
+    const [selectedMovie, setSelectedMovie] = useState<Movie | null>(null);
+    const [isLoading, setIsLoading] = useState(true);
     const scrollRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
-        const fetchMovies = async () => {
-            try {
-                const apiKey = process.env.NEXT_PUBLIC_TMDB_API_KEY;
-                const url = constructTMDBUrl(apiKey!);
-                const response = await fetch(url);
-                const data = await response.json();
-                const formattedMovies = data.results.map((movie: any) => ({
-                    id: movie.id,
-                    title: movie.title,
-                    imageUrl: `https://image.tmdb.org/t/p/w1280${movie.poster_path}`
-                }));
-                setMovies(formattedMovies);
-                console.log(formattedMovies);
-            } catch (error) {
-                console.error('Error fetching movies:', error);
-            }
-        };
+        const apiKey = process.env.NEXT_PUBLIC_TMDB_API_KEY || '';
+        const url = constructTMDBUrl(apiKey);
 
-        fetchMovies();
+        axios.get(url)
+            .then(response => {
+                setMovies(response.data.results);
+                setIsLoading(false);
+            })
+            .catch(error => {
+                console.error('Error fetching movies:', error);
+                setIsLoading(false);
+            });
     }, []);
 
     const scroll = (direction: 'left' | 'right') => {
@@ -43,6 +40,14 @@ const PopularMovies: React.FC = () => {
         }
     };
 
+    const handleMovieClick = (movie: Movie) => {
+        setSelectedMovie(movie);
+    };
+
+    const closeModal = () => {
+        setSelectedMovie(null);
+    };
+
     return (
         <div className={styles.popularMoviesContainer}>
             <h2 className={styles.sectionTitle}>Popular Movies</h2>
@@ -50,8 +55,14 @@ const PopularMovies: React.FC = () => {
                 <button className={styles.navButton} onClick={() => scroll('left')}>{"<"}</button>
                 <div className={styles.moviesGrid} ref={scrollRef}>
                     {movies.map(movie => (
-                        <div key={movie.id} className={styles.movieCard}>
-                            <img src={movie.imageUrl} alt={movie.title} className={styles.movieImage} />
+                        <div key={movie.id} className={styles.movieCard} onClick={() => handleMovieClick(movie)}>
+                            <Image
+                                src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                                alt={movie.title}
+                                className={styles.movieImage}
+                                width={200}
+                                height={300}
+                            />
                             <h3 className={styles.movieTitle}>{movie.title}</h3>
                         </div>
                     ))}
@@ -60,6 +71,7 @@ const PopularMovies: React.FC = () => {
             </div>
             <TabMovies />
             <Footer />
+            {selectedMovie && <MovieModal movie={selectedMovie} onClose={closeModal} />}
         </div>
     );
 };
