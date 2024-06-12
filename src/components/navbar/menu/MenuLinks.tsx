@@ -21,7 +21,7 @@ const MenuLinks: React.FC = () => {
     const [session, setSession] = useState(typeof window !== "undefined" && localStorage.getItem('userToken'));
 
     const handleLogout = () => {
-        setIsLoading(true); // Set isLoading to true
+        setIsLoading(true);
         setTimeout(() => {
         localStorage.removeItem('userToken');
         localStorage.removeItem('user');

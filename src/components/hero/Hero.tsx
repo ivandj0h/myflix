@@ -1,11 +1,22 @@
-import React from 'react';
-import {FaPlay, FaInfoCircle} from 'react-icons/fa';
+import React, { useState } from 'react';
+import { FaPlay, FaInfoCircle } from 'react-icons/fa';
 import styles from './hero.module.css';
+import ModalHero from '../modal/ModalHero'; // Menggunakan komponen ModalHero
 
 const Hero: React.FC = () => {
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+    const openModal = () => {
+        setIsModalOpen(true);
+    };
+
+    const closeModal = () => {
+        setIsModalOpen(false);
+    };
+
     return (
         <div className={styles.heroContainer}>
-            <div className={styles.heroOverlay}/>
+            <div className={styles.heroOverlay} />
             <video
                 className={styles.heroVideo}
                 src="https://www.w3schools.com/howto/rain.mp4"
@@ -20,32 +31,19 @@ const Hero: React.FC = () => {
                     supporting role living in a...
                 </p>
                 <div className={styles.heroButtons}>
-                    <button className={styles.playButton}>
-                        <FaPlay style={{marginRight: '8px'}}/>
+                    <button className={styles.playButton} onClick={openModal}>
+                        <FaPlay style={{ marginRight: '8px' }} />
                         PLAY
                     </button>
                     <button className={styles.moreInfoButton}>
-                        <FaInfoCircle style={{marginRight: '8px'}}/>
+                        <FaInfoCircle style={{ marginRight: '8px' }} />
                         More Info
                     </button>
                 </div>
             </div>
+            {isModalOpen && <ModalHero onClose={closeModal} />}
         </div>
     );
 };
 
 export default Hero;
-
-
-{/*<Image*/
-}
-{/*    src='https://images.pexels.com/photos/66134/pexels-photo-66134.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'*/
-}
-{/*    alt='Hero image'*/
-}
-{/*    layout='fill'*/
-}
-{/*    objectFit='cover'*/
-}
-{/*/>*/
-}
