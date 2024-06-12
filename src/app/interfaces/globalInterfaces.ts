@@ -42,3 +42,9 @@ export interface Movie {
 export interface MovieCardsProps {
     category: string;
 }
+
+export interface Movie {
+    id: number;
+    title: string;
+    imageUrl: string;
+}
