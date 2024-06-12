@@ -2,7 +2,26 @@
 const nextConfig = {
     reactStrictMode: true,
     images: {
-        domains: ['images.pexels.com', 'lh3.googleusercontent.com', 'image.tmdb.org']
+        remotePatterns: [
+            {
+                protocol: 'https',
+                hostname: 'lh3.googleusercontent.com',
+                port: '',
+                pathname: '**',
+            },
+            {
+                protocol: 'https',
+                hostname: 'image.tmdb.org',
+                port: '',
+                pathname: '**',
+            },
+            {
+                protocol: 'https',
+                hostname: 'images.pexels.com',
+                port: '',
+                pathname: '**',
+            }
+        ],
     }
 };
 
