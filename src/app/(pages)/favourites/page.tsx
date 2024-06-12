@@ -7,6 +7,7 @@ import styles from './favourite-page.module.css';
 import { useTheme } from '@/app/context/ThemeContext';
 import Footer from "@/components/footer/Footer";
 import {CiCircleRemove} from "react-icons/ci";
+import Image from "next/image";
 
 const FavouritePage: React.FC = () => {
     const { isDarkTheme } = useTheme();
@@ -59,7 +60,7 @@ const FavouritePage: React.FC = () => {
                         <div className={styles.gridContainer}>
                             {visibleFavourites.map((movie) => (
                                 <div key={movie.id} className={styles.card}>
-                                    <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} className={styles.cardImage} />
+                                    <Image src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} className={styles.cardImage} />
                                     <div className={styles.cardContent}>
                                         <h3 className={styles.cardTitle}>{movie.title}</h3>
                                         <p className={styles.cardDescription}>{movie.overview}</p>
