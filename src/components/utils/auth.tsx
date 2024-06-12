@@ -1,12 +1,10 @@
-// utils/auth.ts
-
 "use client"
 
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 
 const auth = (WrappedComponent: React.FC) => {
-    return (props: any) => {
+    const AuthComponent = (props: any) => {
         const [isLoading, setIsLoading] = useState(true);
         const router = useRouter();
 
@@ -25,12 +23,19 @@ const auth = (WrappedComponent: React.FC) => {
 
         return <WrappedComponent {...props} />;
     };
+
+    AuthComponent.displayName = `Auth(${getDisplayName(WrappedComponent)})`;
+
+    return AuthComponent;
+};
+
+const getDisplayName = (WrappedComponent: React.FC): string => {
+    return WrappedComponent.displayName || WrappedComponent.name || 'Component';
 };
 
 export const isUserLoggedIn = (): boolean => {
     const token = typeof window !== "undefined" ? localStorage.getItem('userToken') : null;
     return !!token;
 };
-
 
 export default auth;

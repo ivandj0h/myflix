@@ -4,6 +4,7 @@ import styles from './movie-cards.module.css';
 import { Movie, MovieCardsProps } from "@/app/interfaces/globalInterfaces";
 import {constructsTMDBUrl} from '@/app/constants/EndpointTMDB';
 import MovieModal from "@/components/modal/MovieModal";
+import Image from "next/image";
 
 const MovieCards: React.FC<MovieCardsProps> = ({ category }) => {
     const [movies, setMovies] = useState<Movie[]>([]);
@@ -51,7 +52,7 @@ const MovieCards: React.FC<MovieCardsProps> = ({ category }) => {
         <>
             {movies.map((movie: Movie) => (
                 <div key={movie.id} className={styles.movieCard} onClick={() => handleMovieClick(movie)}>
-                    <img src={movie.imageUrl} alt={movie.title} className={styles.movieImage} />
+                    <Image src={movie.imageUrl} alt={movie.title} className={styles.movieImage} />
                     <h3 className={styles.movieTitle}>{movie.title}</h3>
                 </div>
             ))}
