@@ -4,11 +4,13 @@ import styles from './movie-modal.module.css';
 import {Movie, MovieModalProps} from '@/app/interfaces/globalInterfaces';
 import { useTheme } from '@/app/context/ThemeContext';
 import { CiCirclePlus, CiCircleRemove } from 'react-icons/ci';
+import LoadingSpinner from "@/components/utils/LoadingSpinner";
 
 
 const MovieModal: React.FC<MovieModalProps> = ({ movie, onClose }) => {
     const { isDarkTheme } = useTheme();
     const [isFavourite, setIsFavourite] = useState(false);
+    const [isImageLoading, setIsImageLoading] = useState(true);
 
     useEffect(() => {
         if (movie) {
@@ -34,6 +36,10 @@ const MovieModal: React.FC<MovieModalProps> = ({ movie, onClose }) => {
         }
     };
 
+    const handleImageLoad = () => {
+        setIsImageLoading(false); // Set loading to false when image is loaded
+    };
+
     if (!movie) {
         return null;
     }
@@ -43,12 +49,14 @@ const MovieModal: React.FC<MovieModalProps> = ({ movie, onClose }) => {
             <div className={styles.modalContent}>
                 <button className={styles.closeButton} onClick={onClose}>×</button>
                 <div className={styles.modalLeft}>
+                    {isImageLoading && <LoadingSpinner/>} {/* Show spinner while image is loading */}
                     <Image
                         src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
                         alt={movie.original_title}
                         width={500}
                         height={750}
                         className={styles.movieImage}
+                        onLoadingComplete={handleImageLoad} // Event when image is loaded
                     />
                 </div>
                 <div className={isDarkTheme ? styles.modalRightDark : styles.modalRightLight}>
@@ -65,12 +73,12 @@ const MovieModal: React.FC<MovieModalProps> = ({ movie, onClose }) => {
                         <button onClick={handleFavouriteClick} className={styles.favouriteButton}>
                             {isFavourite ? (
                                 <>
-                                    <CiCircleRemove style={{ marginRight: '8px' }} />
+                                    <CiCircleRemove style={{marginRight: '8px'}}/>
                                     Remove from Favourite
                                 </>
                             ) : (
                                 <>
-                                    <CiCirclePlus style={{ marginRight: '8px' }} />
+                                    <CiCirclePlus style={{marginRight: '8px'}}/>
                                     Add to Favourite
                                 </>
                             )}

@@ -23,7 +23,7 @@ const HeroFavourites: React.FC = () => {
                     </p>
                 </div>
             </div>
-            <Footer/>
+
         </>
     );
 };
