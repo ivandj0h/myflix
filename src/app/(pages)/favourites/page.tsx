@@ -21,8 +21,8 @@ const FavouritePage: React.FC = () => {
             const parsedFavourites: Movie[] = JSON.parse(storedFavourites);
             if (parsedFavourites.length > 0) {
                 setFavourites(parsedFavourites);
-                setVisibleFavourites(parsedFavourites.slice(0, 8));
-                setShowLoadMore(parsedFavourites.length > 8);
+                setVisibleFavourites(parsedFavourites.slice(0, 12));
+                setShowLoadMore(parsedFavourites.length > 12);
             } else {
                 setErrorMessage('Favourite lists is empty');
             }
