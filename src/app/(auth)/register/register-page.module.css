@@ -39,11 +39,28 @@
     z-index: 1;
     width: 400px;
     padding: 40px;
-    background: rgba(0, 0, 0, 0.75);
+    background: rgba(0, 0, 0, 0.2);
     border-radius: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.logoThin {
+    font-size: 24px;
+    font-weight: 300; /* Thin */
+}
+
+.logoBold {
+    font-size: 24px;
+    font-weight: bold; /* Bold */
+    color: red;
 }
 
 .title {
@@ -72,17 +89,29 @@
     border-radius: 5px;
     border: none;
     font-size: 16px;
+    color: #555555;
 }
 
 .signUpButton {
-    width: 100%;
-    padding: 15px;
+    width: 99.5%; /* Adjust width to fit two buttons in one row */
+    padding: 10px;
     border-radius: 5px;
     border: none;
-    background: red;
-    color: white;
     font-size: 16px;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.signUpButton {
+    background: red;
+    color: white;
+}
+
+.signUpButton:hover {
+    background: darkred;
 }
 
 .signInText {
@@ -94,4 +123,28 @@
 .signInLink {
     color: red;
     text-decoration: none;
+}
+
+.toast {
+    background-color: red;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    text-align: center;
+    width: 100%;
+}
+
+.successToast {
+    background-color: green;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    text-align: center;
+    width: 100%;
+}
+
+.inputError {
+    border: 2px solid red;
 }

@@ -15,3 +15,25 @@ export const constructTMDBUrl = (apiKey: string) => {
 
     return `${TMDB_API_ENDPOINT}?${params.toString()}`;
 };
+
+export const constructsTMDBUrl = (apiKey: string, category: string): string => {
+    const baseUrl = 'https://api.themoviedb.org/3/movie';
+    let endpoint = '';
+
+    switch (category) {
+        case 'Now Playing':
+            endpoint = 'now_playing';
+            break;
+        case 'Upcoming Movies':
+            endpoint = 'upcoming';
+            break;
+        case 'Top Rated Movies':
+            endpoint = 'top_rated';
+            break;
+        default:
+            throw new Error('Invalid category');
+    }
+
+    return `${baseUrl}/${endpoint}?api_key=${apiKey}`;
+};
+

@@ -25,6 +25,7 @@ const MenuLinks: React.FC = () => {
         setTimeout(() => {
         localStorage.removeItem('userToken');
         localStorage.removeItem('user');
+        localStorage.removeItem('my_favourites');
         setSession(null);
             setIsLoading(false);
             window.location.href = '/';

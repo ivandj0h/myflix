@@ -60,6 +60,11 @@ export interface Movie {
     vote_count: number;
 }
 
+export interface MovieCardsProps {
+    category: string;
+}
+
+
 export interface MovieModalProps {
     movie: Movie | null;
     onClose: () => void;
