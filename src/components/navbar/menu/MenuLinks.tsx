@@ -6,10 +6,11 @@ import { MENU_LISTS } from '@/app/constants/MenuLists';
 import { MenuListItem } from '@/app/interfaces/globalInterfaces';
 import styles from './menu-links.module.css';
 import NavLink from "@/components/navbar/navlink/navLink";
-import { FaRegSun, FaMoon } from "react-icons/fa";
+import {FaRegSun, FaMoon, FaBars} from "react-icons/fa";
 import { useTheme } from '@/app/context/ThemeContext';
 import ProfileModal from '@/components/profile/ProfileModal';
 import LoadingSpinner from '@/components/utils/LoadingSpinner';
+import Link from "next/link";
 
 const MenuLinks: React.FC = () => {
     const dropdownRef = useRef<HTMLDivElement>(null);
@@ -17,16 +18,16 @@ const MenuLinks: React.FC = () => {
     const [isLoading, setIsLoading] = useState(false);
     const [dropdownOpen, setDropdownOpen] = useState(false);
     const [profileOpen, setProfileOpen] = useState(false);
-    const { isDarkTheme, toggleTheme } = useTheme(); // Use useTheme hook
+    const { isDarkTheme, toggleTheme } = useTheme();
     const [session, setSession] = useState(typeof window !== "undefined" && localStorage.getItem('userToken'));
 
     const handleLogout = () => {
         setIsLoading(true);
         setTimeout(() => {
-        localStorage.removeItem('userToken');
-        localStorage.removeItem('user');
-        localStorage.removeItem('my_favourites');
-        setSession(null);
+            localStorage.removeItem('userToken');
+            localStorage.removeItem('user');
+            localStorage.removeItem('my_favourites');
+            setSession(null);
             setIsLoading(false);
             window.location.href = '/';
         }, 3000);
@@ -43,10 +44,15 @@ const MenuLinks: React.FC = () => {
     const closeProfileModal = () => {
         setProfileOpen(false);
     };
+
     const handleClickOutside = (event: MouseEvent) => {
         if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
             setDropdownOpen(false);
         }
+    };
+
+    const handleLinkClick = () => {
+        setOpen(false); // Close the dropdown menu when a link is clicked
     };
 
     useEffect(() => {
@@ -74,7 +80,7 @@ const MenuLinks: React.FC = () => {
                         <button onClick={toggleTheme} className={styles.toggleButton}>
                             {isDarkTheme ? <FaRegSun /> : <FaMoon />}
                         </button>
-                            <span className={styles.username}>Welcome, {user.displayName || 'Anonymous'}</span>
+                        <span className={styles.username}>Welcome, {user.displayName || 'Anonymous'}</span>
                         <div className={styles.avatarContainer} ref={dropdownRef}>
                             <button
                                 onClick={toggleDropdown}
@@ -100,14 +106,18 @@ const MenuLinks: React.FC = () => {
                     </>
                 )}
             </div>
-            <button onClick={() => setOpen(prev => !prev)} className={styles.menuButton}>Menu</button>
-            {
-                open && <div className={styles.mobileLinks}>
+            <button onClick={() => setOpen(prev => !prev)} className={styles.menuButton}>
+                <FaBars />
+            </button>
+            {open && (
+                <div className={styles.mobileLinks}>
                     {MENU_LISTS.map((link: MenuListItem) => (
-                        <NavLink item={link} key={link.id} />
+                        <Link href={link.path} className={styles.mobileLinkItem} key={link.id} onClick={handleLinkClick}>
+                            {link.menuTitle}
+                        </Link>
                     ))}
                 </div>
-            }
+            )}
             {profileOpen && <ProfileModal onClose={closeProfileModal} />}
         </div>
     );
