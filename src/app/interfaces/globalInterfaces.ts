@@ -15,6 +15,7 @@ export interface MenuListItem {
     pathTitle: string;
     menuTitle: string;
     path: string;
+    icon: string;
 }
 
 
@@ -22,6 +23,7 @@ export interface NavItem {
     pathTitle: string;
     path: string;
     menuTitle: string;
+    icon: string;
 }
 
 export interface MenuListItem extends NavItem {
