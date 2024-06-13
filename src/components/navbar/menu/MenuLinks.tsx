@@ -6,11 +6,18 @@ import { MENU_LISTS } from '@/app/constants/MenuLists';
 import { MenuListItem } from '@/app/interfaces/globalInterfaces';
 import styles from './menu-links.module.css';
 import NavLink from "@/components/navbar/navlink/navLink";
-import {FaRegSun, FaMoon, FaBars} from "react-icons/fa";
+import {
+    FaRegSun,
+    FaMoon,
+    FaBars,
+    FaRegUser
+} from "react-icons/fa";
+import { CgLogOff } from "react-icons/cg";
 import { useTheme } from '@/app/context/ThemeContext';
 import ProfileModal from '@/components/profile/ProfileModal';
 import LoadingSpinner from '@/components/utils/LoadingSpinner';
 import Link from "next/link";
+import {ICONS_MAP} from "@/app/constants/IconMap";
 
 const MenuLinks: React.FC = () => {
     const dropdownRef = useRef<HTMLDivElement>(null);
@@ -98,8 +105,12 @@ const MenuLinks: React.FC = () => {
                             </button>
                             {dropdownOpen && (
                                 <div className={styles.dropdownMenu}>
-                                    <button onClick={openProfileModal} className={styles.dropdownItem}>Profile</button>
-                                    <button onClick={handleLogout} className={styles.dropdownItem}>Logout</button>
+                                    <button onClick={openProfileModal} className={styles.dropdownItem}>
+                                        <FaRegUser /> Profile
+                                    </button>
+                                    <button onClick={handleLogout} className={styles.dropdownItem}>
+                                        <CgLogOff /> Logout
+                                    </button>
                                 </div>
                             )}
                         </div>
@@ -112,13 +123,20 @@ const MenuLinks: React.FC = () => {
             {open && (
                 <div className={styles.mobileLinks}>
                     {MENU_LISTS.map((link: MenuListItem) => (
-                        <Link href={link.path} className={styles.mobileLinkItem} key={link.id} onClick={handleLinkClick}>
-                            {link.menuTitle}
-                        </Link>
+                            <Link href={link.path} className={styles.mobileLinkItem} key={link.id}
+                                  onClick={handleLinkClick}>
+                                {ICONS_MAP[link.icon]} {link.menuTitle}
+                            </Link>
                     ))}
+                    <button onClick={openProfileModal} className={styles.dropdownItem}>
+                        <FaRegUser/> Profile
+                    </button>
+                    <button onClick={handleLogout} className={styles.dropdownItem}>
+                        <CgLogOff/> Logout
+                    </button>
                 </div>
             )}
-            {profileOpen && <ProfileModal onClose={closeProfileModal} />}
+            {profileOpen && <ProfileModal onClose={closeProfileModal}/>}
         </div>
     );
 };
