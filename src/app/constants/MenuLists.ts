@@ -10,5 +10,11 @@ export const MENU_LISTS = [
         menuTitle: 'Favourites',
         pathTitle: 'favourites',
         path: '/favourites'
+    },
+    {
+        id: '3',
+        menuTitle: 'Search',
+        pathTitle: 'search',
+        path: '/search'
     }
 ]

@@ -13,8 +13,8 @@ const NotFound: React.FC = () => {
             setIsLoading(true);
             setTimeout(() => {
                 router.push('/');
-            }, 2000);
-        }, 5000);
+            }, 500);
+        }, 1000);
     }, [router]);
 
     return (
