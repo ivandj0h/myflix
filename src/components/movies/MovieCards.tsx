@@ -50,18 +50,20 @@ const MovieCards: React.FC<MovieCardsProps> = ({ category }) => {
 
     return (
         <>
-            {movies.map((movie: Movie) => (
-                <div key={movie.id} className={styles.movieCard} onClick={() => handleMovieClick(movie)}>
-                    <Image
-                        src={movie.imageUrl}
-                        alt={movie.title}
-                        className={styles.movieImage}
-                        width={300}
-                        height={300}
-                    />
-                    <h3 className={styles.movieTitle}>{movie.title}</h3>
-                </div>
-            ))}
+            <div className={styles.movieCardsContainer}>
+                {movies.map((movie: Movie) => (
+                    <div key={movie.id} className={styles.movieCard} onClick={() => handleMovieClick(movie)}>
+                        <Image
+                            src={movie.imageUrl}
+                            alt={movie.title}
+                            className={styles.movieImage}
+                            width={300}
+                            height={300}
+                        />
+                        <h3 className={styles.movieTitle}>{movie.title}</h3>
+                    </div>
+                ))}
+            </div>
             {selectedMovie && <MovieModal movie={selectedMovie} onClose={closeModal} />}
         </>
     );

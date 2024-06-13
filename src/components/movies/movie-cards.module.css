@@ -6,6 +6,8 @@
     max-width: 200px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
+    margin: 10px; /* Add some margin for spacing */
+    flex: 1 1 calc(50% - 20px); /* Default to two cards per row */
 }
 
 .movieCard:hover {
@@ -22,4 +24,46 @@
     color: white;
     padding: 10px;
     text-align: center;
+}
+
+.movieCardsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+@media (min-width: 320px) {
+    .movieCard {
+        flex: 1 1 calc(50% - 20px); /* Two cards per row */
+    }
+}
+
+@media (min-width: 481px) {
+    .movieCard {
+        flex: 1 1 calc(33.33% - 20px); /* Three cards per row */
+    }
+}
+
+@media (min-width: 641px) {
+    .movieCard {
+        flex: 1 1 calc(25% - 20px); /* Four cards per row */
+    }
+}
+
+@media (min-width: 961px) {
+    .movieCard {
+        flex: 1 1 calc(20% - 20px); /* Five cards per row */
+    }
+}
+
+@media (min-width: 1025px) {
+    .movieCard {
+        flex: 1 1 calc(16.66% - 20px); /* Six cards per row */
+    }
+}
+
+@media (min-width: 1281px) {
+    .movieCard {
+        flex: 1 1 calc(12.5% - 20px); /* Eight cards per row */
+    }
 }
