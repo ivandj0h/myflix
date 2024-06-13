@@ -67,9 +67,8 @@ const SearchPage: React.FC = () => {
     };
 
     const handleSuggestionClick = (movie: Movie) => {
-        setQuery(movie.title);
+        setQuery('');
         searchMovies(movie.title);
-        setSuggestions([]); // Hapus kotak auto-suggestion
     };
 
     const handleSubmit = (event: FormEvent) => {
