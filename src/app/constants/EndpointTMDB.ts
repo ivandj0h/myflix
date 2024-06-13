@@ -7,6 +7,17 @@ export const TMDB_API_PARAMS = {
     include_video: 'true',
 };
 
+export const generateTMDBSearchUrl = (apiKey: string, query: string) => {
+    const params = new URLSearchParams({
+        api_key: apiKey,
+        query: query,
+        ...TMDB_API_PARAMS,
+    });
+
+    return `https://api.themoviedb.org/3/search/movie?${params.toString()}`;
+};
+
+
 export const constructTMDBUrl = (apiKey: string) => {
     const params = new URLSearchParams({
         api_key: apiKey,
