@@ -2,7 +2,7 @@
 
 ## Description
 
-`MyFlix` is an online streaming platform similar to `Netflix`, developed using ReactJS, TypeScript, and Firebase. The
+`MyFlix` is an online streaming platform similar to `Netflix`, developed using `ReactJS`, `TypeScript`, and `Firebase`. The
 application includes features such as sign-up and sign-in using Firebase on the backend, allowing users to sign in with
 both email and Google.
 
@@ -105,8 +105,31 @@ delete button, and the movie will disappear from this page.
 ![Home](./public/images/favourites.png)
 
 ### Detail Movies
+
 This is the modal that i created to show the details of the movie.
 ![Home](./public/images/card.png)
+
+### Search Movies
+
+This application also comes with a search feature, where users can search for movies based on their preferences.
+Additionally, the search feature includes an auto-suggestion function, which displays a list of movie suggestions based
+on the characters inputted by the user
+
+#### Search Form
+
+![Home](./public/images/search.png)
+
+#### Search - AutoSuggestion
+
+![Home](./public/images/search_suggestion.png)
+
+#### Search - Results
+
+![Home](./public/images/search_results.png)
+
+Here's the translation of the provided text into English:
+
+In the future, there may be improvements to this application. I plan to continuously make changes to its features.
 
 ## Credit
 
