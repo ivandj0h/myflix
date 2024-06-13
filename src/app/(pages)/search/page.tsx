@@ -10,6 +10,7 @@ import { generateTMDBSearchUrl } from '../../constants/EndpointTMDB'
 import MovieModal from "@/components/modal/MovieModal";
 import {Movie} from "@/app/interfaces/globalInterfaces";
 
+
 const API_KEY = process.env.NEXT_PUBLIC_TMDB_API_KEY || '';
 
 const SearchPage: React.FC = () => {

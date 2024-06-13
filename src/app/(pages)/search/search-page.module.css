@@ -93,7 +93,7 @@
 .suggestionsList {
     position: absolute;
     top: 48px; /* Sesuaikan dengan tinggi input */
-    left: 621px; /* Geser ke kiri sejajar dengan batas kiri dari textbox */
+    left: 350px;
     width: 300px;
     max-height: 200px;
     overflow-y: auto;
@@ -110,4 +110,79 @@
 
 .suggestionItem:hover {
     background-color: #555; /* Warna latar belakang saat hover */
+}
+
+/* Media Queries */
+@media (min-width: 320px) {
+    .movieCard {
+        flex: 1 1 calc(50% - 20px); /* Two cards per row */
+    }
+
+    .searchForm {
+        flex-direction: column;
+    }
+
+    .searchInput {
+        margin-right: 0;
+        margin-bottom: 10px;
+        width: 100%;
+    }
+
+    .suggestionsList {
+        left: 24px;
+    }
+
+    .searchButton {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media (min-width: 481px) {
+    .movieCard {
+        flex: 1 1 calc(33.33% - 20px); /* Three cards per row */
+    }
+
+    .searchForm {
+        flex-direction: row;
+    }
+
+    .searchInput {
+        margin-right: 10px;
+        margin-bottom: 0;
+        width: 300px;
+    }
+
+    .suggestionsList {
+        left: 620px;
+    }
+
+    .searchButton {
+        width: auto;
+        justify-content: center;
+    }
+}
+
+@media (min-width: 641px) {
+    .movieCard {
+        flex: 1 1 calc(25% - 20px); /* Four cards per row */
+    }
+}
+
+@media (min-width: 961px) {
+    .movieCard {
+        flex: 1 1 calc(20% - 20px); /* Five cards per row */
+    }
+}
+
+@media (min-width: 1025px) {
+    .movieCard {
+        flex: 1 1 calc(16.66% - 20px); /* Six cards per row */
+    }
+}
+
+@media (min-width: 1281px) {
+    .movieCard {
+        flex: 1 1 calc(12.5% - 20px); /* Eight cards per row */
+    }
 }
