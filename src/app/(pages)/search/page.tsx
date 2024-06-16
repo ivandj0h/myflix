@@ -1,15 +1,15 @@
 "use client"
 
-import React, {useState, FormEvent, useEffect} from 'react';
+import React, { useState, FormEvent, useEffect } from 'react';
 import Footer from "@/components/footer/Footer";
 import styles from './search-page.module.css';
 import auth from "@/components/utils/auth";
 import { FaSearch } from "react-icons/fa";
 import Image from 'next/image';
-import { generateTMDBSearchUrl } from '../../constants/EndpointTMDB'
-import MovieModal from "@/components/modal/MovieModal";
-import {Movie} from "@/app/interfaces/globalInterfaces";
-
+import { generateTMDBSearchUrl } from '../../constants/EndpointTMDB';
+import MovieModal from '../../../components/modal/MovieModal'
+import { Movie } from '../../interfaces/globalInterfaces'
+import { useDebounce } from 'use-debounce';
 
 const API_KEY = process.env.NEXT_PUBLIC_TMDB_API_KEY || '';
 
@@ -19,14 +19,15 @@ const SearchPage: React.FC = () => {
     const [suggestions, setSuggestions] = useState<Movie[]>([]);
     const [errorMessage, setErrorMessage] = useState<string>('');
     const [selectedMovie, setSelectedMovie] = useState<Movie | null>(null);
+    const [debouncedQuery] = useDebounce(query, 300);
 
     useEffect(() => {
-        if (query.length > 2) {
-            fetchSuggestions(query);
+        if (debouncedQuery.length > 2) {
+            fetchSuggestions(debouncedQuery);
         } else {
             setSuggestions([]);
         }
-    }, [query]);
+    }, [debouncedQuery]);
 
     const fetchSuggestions = async (searchTerm: string) => {
         try {
@@ -98,7 +99,7 @@ const SearchPage: React.FC = () => {
                     </ul>
                 )}
                 <button type="submit" className={styles.searchButton}>
-                    <FaSearch className={styles.searchIcon}/>
+                    <FaSearch className={styles.searchIcon} />
                     Search
                 </button>
             </form>
@@ -125,7 +126,7 @@ const SearchPage: React.FC = () => {
                     </div>
                 )}
             </div>
-            <Footer/>
+            <Footer />
         </div>
     );
 };
